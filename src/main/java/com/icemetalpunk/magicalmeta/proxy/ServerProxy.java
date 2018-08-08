@@ -1,27 +1,17 @@
 package com.icemetalpunk.magicalmeta.proxy;
 
-import com.icemetalpunk.api.blocks.BlockRegistry;
-import com.icemetalpunk.api.item.ItemRegistry;
-import com.icemetalpunk.magicalmeta.items.ItemEnderCompass;
-
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class CommonProxy {
-
-	public BlockRegistry blocks = new BlockRegistry(false);
-	public ItemRegistry items = new ItemRegistry(false);
+public class ServerProxy extends AbstractProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
-		items.add("ender_compass", new ItemEnderCompass());
 	}
 
 	public void init(FMLInitializationEvent event) {
-
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
-
 	}
 }

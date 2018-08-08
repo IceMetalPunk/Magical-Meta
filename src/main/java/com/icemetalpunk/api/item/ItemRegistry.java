@@ -11,11 +11,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class ItemRegistry {
 	private final HashMap<String, BasicItem> registry = new HashMap<String, BasicItem>();
-	private boolean isClientSide;
 
-	public ItemRegistry(boolean isClient) {
+	public ItemRegistry() {
 		MinecraftForge.EVENT_BUS.register(this);
-		this.isClientSide = isClient;
 	}
 
 	public void add(String name, BasicItem item) {
@@ -37,9 +35,6 @@ public class ItemRegistry {
 
 	@SubscribeEvent
 	public void registerModels(ModelRegistryEvent event) {
-		if (!isClientSide) {
-			return;
-		}
 		for (BasicItem item : registry.values()) {
 			item.registerModel();
 		}

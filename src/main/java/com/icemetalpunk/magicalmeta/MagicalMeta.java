@@ -2,14 +2,16 @@ package com.icemetalpunk.magicalmeta;
 
 import org.apache.logging.log4j.Logger;
 
-import com.icemetalpunk.magicalmeta.proxy.CommonProxy;
+import com.icemetalpunk.api.blocks.BlockRegistry;
+import com.icemetalpunk.api.item.ItemRegistry;
+import com.icemetalpunk.magicalmeta.proxy.AbstractProxy;
+import com.icemetalpunk.magicalmeta.util.RegistryUtil;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -30,8 +32,10 @@ public class MagicalMeta {
 
 	};
 
-	@SidedProxy(clientSide = "com.icemetalpunk.magicalmeta.proxy.ClientProxy", serverSide = "com.icemetalpunk.magicalmeta.proxy.CommonProxy")
-	public static CommonProxy proxy;
+	@SidedProxy(clientSide = "com.icemetalpunk.magicalmeta.proxy.ClientProxy", serverSide = "com.icemetalpunk.magicalmeta.proxy.ServerProxy")
+	public static AbstractProxy proxy;
+	public static BlockRegistry blocks = new BlockRegistry();
+	public static ItemRegistry items = new ItemRegistry();
 
 	public static Logger getLogger() {
 		return logger;
@@ -40,12 +44,9 @@ public class MagicalMeta {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
+		RegistryUtil.registerBlocks();
+		RegistryUtil.registerItems();
 		proxy.preInit(event);
-	}
-
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		proxy.init(event);
 	}
 
 	@EventHandler

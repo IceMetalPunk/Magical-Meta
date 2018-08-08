@@ -1,7 +1,6 @@
 package com.icemetalpunk.api.blocks;
 
 import com.icemetalpunk.api.util.BlockOreDictionaryManager;
-import com.icemetalpunk.api.util.IModeledObject;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -11,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.model.ModelLoader;
 
-public class BasicBlock extends Block implements IModeledObject {
+public class BasicBlock extends Block {
 
 	public ItemBlock itemBlock = new ItemBlock(this);
 	public final BlockOreDictionaryManager oreDictManager = new BlockOreDictionaryManager(this);
@@ -25,7 +24,6 @@ public class BasicBlock extends Block implements IModeledObject {
 		this(mod, name, tab, blockMaterialIn, blockMaterialIn.getMaterialMapColor());
 	}
 
-	@Override
 	public void registerModel() {
 		if (this.itemBlock != null) {
 			ModelResourceLocation model = new ModelResourceLocation(this.getRegistryName(), "inventory");
