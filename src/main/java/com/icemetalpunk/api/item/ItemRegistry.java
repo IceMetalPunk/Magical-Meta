@@ -3,6 +3,7 @@ package com.icemetalpunk.api.item;
 import java.util.HashMap;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -31,9 +32,16 @@ public class ItemRegistry {
 		for (BasicItem item : registry.values()) {
 			forgeRegistry.register(item);
 			item.oreDictManager.register();
-			if (isClientSide) {
-				item.registerModel();
-			}
+		}
+	}
+
+	@SubscribeEvent
+	public void registerModels(ModelRegistryEvent event) {
+		if (!isClientSide) {
+			return;
+		}
+		for (BasicItem item : registry.values()) {
+			item.registerModel();
 		}
 	}
 }

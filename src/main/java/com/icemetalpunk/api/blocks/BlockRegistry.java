@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -32,9 +33,6 @@ public class BlockRegistry {
 		for (BasicBlock block : registry.values()) {
 			forgeRegistry.register(block);
 			block.oreDictManager.register();
-			if (isClientSide) {
-				block.registerModel();
-			}
 		}
 	}
 
@@ -45,6 +43,16 @@ public class BlockRegistry {
 			if (block.itemBlock != null) {
 				forgeRegistry.register(block.itemBlock);
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public void registerModels(ModelRegistryEvent event) {
+		if (!isClientSide) {
+			return;
+		}
+		for (BasicBlock block : registry.values()) {
+			block.registerModel();
 		}
 	}
 }
