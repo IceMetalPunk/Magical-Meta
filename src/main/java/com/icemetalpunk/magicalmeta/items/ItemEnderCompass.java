@@ -43,6 +43,7 @@ public class ItemEnderCompass extends BasicItem {
 
 			@SideOnly(Side.CLIENT)
 			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+				MagicalMeta.getLogger().info("Applying angle override, maybe?");
 				if (entityIn == null && !stack.isOnItemFrame()) {
 					return 0.0F;
 				} else {
