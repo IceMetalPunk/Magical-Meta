@@ -12,11 +12,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class BlockRegistry {
 	private final HashMap<String, BasicBlock> registry = new HashMap<String, BasicBlock>();
-	private boolean isClientSide;
 
-	public BlockRegistry(boolean isClient) {
+	public BlockRegistry() {
 		MinecraftForge.EVENT_BUS.register(this);
-		this.isClientSide = isClient;
 	}
 
 	public void add(String name, BasicBlock block) {
@@ -48,9 +46,6 @@ public class BlockRegistry {
 
 	@SubscribeEvent
 	public void registerModels(ModelRegistryEvent event) {
-		if (!isClientSide) {
-			return;
-		}
 		for (BasicBlock block : registry.values()) {
 			block.registerModel();
 		}

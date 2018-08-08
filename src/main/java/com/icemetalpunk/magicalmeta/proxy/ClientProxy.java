@@ -1,16 +1,10 @@
 package com.icemetalpunk.magicalmeta.proxy;
 
-import com.icemetalpunk.api.blocks.BlockRegistry;
-import com.icemetalpunk.api.item.ItemRegistry;
-
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends AbstractProxy {
-
-	public BlockRegistry blocks = new BlockRegistry(true);
-	public ItemRegistry items = new ItemRegistry(true);
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {

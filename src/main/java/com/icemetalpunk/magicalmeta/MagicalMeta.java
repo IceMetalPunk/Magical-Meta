@@ -2,7 +2,10 @@ package com.icemetalpunk.magicalmeta;
 
 import org.apache.logging.log4j.Logger;
 
+import com.icemetalpunk.api.blocks.BlockRegistry;
+import com.icemetalpunk.api.item.ItemRegistry;
 import com.icemetalpunk.magicalmeta.proxy.AbstractProxy;
+import com.icemetalpunk.magicalmeta.util.RegistryUtil;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -33,14 +36,18 @@ public class MagicalMeta {
 
 	@SidedProxy(clientSide = "com.icemetalpunk.magicalmeta.proxy.ClientProxy", serverSide = "com.icemetalpunk.magicalmeta.proxy.ServerProxy")
 	public static AbstractProxy proxy;
+	public static BlockRegistry blocks = new BlockRegistry();
+	public static ItemRegistry items = new ItemRegistry();
+
+	public static Logger getLogger() {
+		return logger;
+	}
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
-	}
-
-	public static Logger getLogger() {
-		return logger;
+		RegistryUtil.registerBlocks();
+		RegistryUtil.registerItems();
 	}
 
 	@EventHandler
