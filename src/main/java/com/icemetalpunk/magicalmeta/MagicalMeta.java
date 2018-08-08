@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import com.icemetalpunk.magicalmeta.proxy.CommonProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -26,8 +25,7 @@ public class MagicalMeta {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			// TODO: Use a real tab icon!
-			return new ItemStack(Items.COMPASS);
+			return new ItemStack(MagicalMeta.proxy.items.get("ender_compass"));
 		}
 
 	};
