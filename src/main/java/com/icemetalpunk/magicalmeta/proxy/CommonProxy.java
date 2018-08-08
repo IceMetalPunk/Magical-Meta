@@ -2,6 +2,7 @@ package com.icemetalpunk.magicalmeta.proxy;
 
 import com.icemetalpunk.api.blocks.BlockRegistry;
 import com.icemetalpunk.api.item.ItemRegistry;
+import com.icemetalpunk.magicalmeta.items.ItemEnderCompass;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -13,7 +14,7 @@ public class CommonProxy {
 	public ItemRegistry items = new ItemRegistry(false);
 
 	public void preInit(FMLPreInitializationEvent event) {
-
+		items.add("ender_compass", new ItemEnderCompass());
 	}
 
 	public void init(FMLInitializationEvent event) {

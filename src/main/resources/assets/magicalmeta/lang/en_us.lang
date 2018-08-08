@@ -1,1 +1,5 @@
 itemGroup.magicalMeta=Magical Meta
+
+item.magicalmeta.ender_compass.set=Bound compass to (%s, %s)
+
+item.magicalmeta.ender_compass.name=Ender Compass
