@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "magicalmeta:items/ender_compass_02"
+    }
+}
