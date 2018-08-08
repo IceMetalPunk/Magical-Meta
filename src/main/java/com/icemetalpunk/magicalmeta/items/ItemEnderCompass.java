@@ -43,7 +43,6 @@ public class ItemEnderCompass extends BasicItem {
 
 			@SideOnly(Side.CLIENT)
 			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-				MagicalMeta.getLogger().info("Applying angle override, maybe?");
 				if (entityIn == null && !stack.isOnItemFrame()) {
 					return 0.0F;
 				} else {
@@ -96,7 +95,7 @@ public class ItemEnderCompass extends BasicItem {
 					NBTTagCompound tag = stack.getTagCompound();
 					int[] pos = tag.getIntArray("LinkedTo");
 					if (pos.length == 2) {
-						blockpos = new BlockPos(pos[0], player.posY, pos[2]);
+						blockpos = new BlockPos(pos[0], player.posY, pos[1]);
 					}
 				}
 

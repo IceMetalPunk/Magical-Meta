@@ -27,7 +27,7 @@ public class MagicalMeta {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(MagicalMeta.proxy.items.get("ender_compass"));
+			return new ItemStack(MagicalMeta.items.get("ender_compass"));
 		}
 
 	};
