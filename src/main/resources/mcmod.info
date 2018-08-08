@@ -1,0 +1,16 @@
+[
+{
+  "modid": "magicalmeta",
+  "name": "Magical Meta",
+  "description": "A mod that adds magical items for in-game access to meta information without the debug menu.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["IceMetalPunk"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
