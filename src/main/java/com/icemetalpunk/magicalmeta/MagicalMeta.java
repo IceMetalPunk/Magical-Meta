@@ -2,7 +2,7 @@ package com.icemetalpunk.magicalmeta;
 
 import org.apache.logging.log4j.Logger;
 
-import com.icemetalpunk.magicalmeta.proxy.CommonProxy;
+import com.icemetalpunk.magicalmeta.proxy.AbstractProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -31,8 +31,8 @@ public class MagicalMeta {
 
 	};
 
-	@SidedProxy(clientSide = "com.icemetalpunk.magicalmeta.proxy.ClientProxy", serverSide = "com.icemetalpunk.magicalmeta.proxy.CommonProxy")
-	public static CommonProxy proxy;
+	@SidedProxy(clientSide = "com.icemetalpunk.magicalmeta.proxy.ClientProxy", serverSide = "com.icemetalpunk.magicalmeta.proxy.ServerProxy")
+	public static AbstractProxy proxy;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

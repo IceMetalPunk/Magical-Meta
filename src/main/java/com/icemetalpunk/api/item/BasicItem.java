@@ -1,6 +1,5 @@
 package com.icemetalpunk.api.item;
 
-import com.icemetalpunk.api.util.IModeledObject;
 import com.icemetalpunk.api.util.ItemOreDictionaryManager;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -8,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 
-public class BasicItem extends Item implements IModeledObject {
+public class BasicItem extends Item {
 
 	public ItemOreDictionaryManager oreDictManager = new ItemOreDictionaryManager(this);
 
@@ -17,7 +16,6 @@ public class BasicItem extends Item implements IModeledObject {
 		this.setRegistryName(mod + ":" + name).setCreativeTab(tab).setUnlocalizedName(mod + "." + name);
 	}
 
-	@Override
 	public void registerModel() {
 		ModelResourceLocation model = new ModelResourceLocation(this.getRegistryName(), "inventory");
 		ModelLoader.registerItemVariants(this, model);
